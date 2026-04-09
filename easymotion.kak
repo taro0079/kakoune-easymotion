@@ -14,7 +14,7 @@ def pydef -params 3 %{ eval %sh{
                     reply = 'echo -debug %%~%s error: {}~'.format(e)
                 with open('%s', 'w') as r:
                     r.write(reply)" "$pyfifo" "$1" "$kakfifo"
-    (python $file) > /dev/null 2>&1 </dev/null &
+    (python3 $file) > /dev/null 2>&1 </dev/null &
     pypid=$!
     echo "
         def -override $1 %{
